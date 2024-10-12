@@ -2,7 +2,7 @@ public class NBody {
     /**return a double corresponding to the radius of the universe*/
     public static double readRadius(String filePath){
         In in = new In(filePath);
-        int n = in.readInt();
+        int num = in.readInt();
         double radius = in.readDouble();
         return radius;
     }
