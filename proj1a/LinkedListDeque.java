@@ -21,17 +21,17 @@ public class LinkedListDeque<T> {
         sentinel.next = sentinel;
         size = 0;
     }
-    /** Creates a deep copy of LinkedListDeque other. */
-    public LinkedListDeque(LinkedListDeque other) {
-        sentinel = new Node(null, null, null);
-        sentinel.prev = sentinel;
-        sentinel.next = sentinel;
-        size = 0;
-
-        for (int i = 0; i < other.size; i++) {
-            addLast((T) other.get(i));
-        }
-    }
+//    /** Creates a deep copy of LinkedListDeque other. */
+//    public LinkedListDeque(LinkedListDeque other) {
+//        sentinel = new Node(null, null, null);
+//        sentinel.prev = sentinel;
+//        sentinel.next = sentinel;
+//        size = 0;
+//
+//        for (int i = 0; i < other.size; i++) {
+//            addLast((T) other.get(i));
+//        }
+//    }
     public void addFirst(T item) {
         size += 1;
         Node newNode = new Node(sentinel, item, sentinel.next);

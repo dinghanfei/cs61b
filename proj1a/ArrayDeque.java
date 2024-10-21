@@ -13,17 +13,17 @@ public class ArrayDeque<T> {
         nextLast = 5;
         length = 8;
     }
-    /** Creates a deep copy of 'other'. */
-    public ArrayDeque(ArrayDeque other) {
-        items = (T[]) new Object[8];
-        size = 0;
-        length = 8;
-        nextFirst = length - 1;
-        nextLast = 0;
-        for (int i = 0; i < other.size; i++) {
-            addLast((T) other.get(i));
-        }
-    }
+//    /** Creates a deep copy of 'other'. */
+//    public ArrayDeque(ArrayDeque other) {
+//        items = (T[]) new Object[8];
+//        size = 0;
+//        length = 8;
+//        nextFirst = length - 1;
+//        nextLast = 0;
+//        for (int i = 0; i < other.size; i++) {
+//            addLast((T) other.get(i));
+//        }
+//    }
     /**
      * Decreases/Increases the specified index by one, wrapping around if necessary.
      *
