@@ -5,7 +5,7 @@ public class ArrayDeque<T> {
     private int nextLast;
     private int length;
 
-    /** Creates an empty array deque. */
+    /** Constructor for ArrayDeque. */
     public ArrayDeque() {
         items = (T[]) new Object[8];
         size = 0;
@@ -28,19 +28,19 @@ public class ArrayDeque<T> {
      * Decreases/Increases the specified index by one, wrapping around if necessary.
      *
      * @param index the current index
-     * @param length the length of the array
+     * @param len the length of the array
      * @return the updated index
      */
-    private int minusOne(int index, int length) {
-        index = index % length;
+    private int minusOne(int index, int len) {
+        index = index % len;
         if (index == 0) {
-            return length - 1;
+            return len - 1;
         }
         return index - 1;
     }
-    private int plusOne(int index, int length) {
-        index = index % length;
-        if (index == length - 1) {
+    private int plusOne(int index, int len) {
+        index = index % len;
+        if (index == len - 1) {
             return 0;
         }
         return index + 1;
@@ -69,7 +69,7 @@ public class ArrayDeque<T> {
         resize(length / 2);
     }
     /** Checks if resizing is needed based on the current size. */
-    private void check(int size, int length) {
+    private void check() {
         if (size > 0.75 * length) {
             grow();
         }
@@ -79,14 +79,14 @@ public class ArrayDeque<T> {
     }
     /** Adds an item of type T to the front of the deque. */
     public void addFirst(T item) {
-        check(size, length);
+        check();
         size += 1;
         items[nextFirst] = item;
         nextFirst = minusOne(nextFirst, length);
     }
     /** Adds an item of type T to the back of the deque. */
     public void addLast(T item) {
-        check(size, length);
+        check();
         size += 1;
         items[nextLast] = item;
         nextLast = plusOne(nextLast, length);
@@ -123,7 +123,7 @@ public class ArrayDeque<T> {
         T item = items[nextFirst];
         items[nextFirst] = null;
         size--;
-        check(size, length);
+        check();
         return item;
     }
     /** Removes and returns the item at the back of the deque.
@@ -137,7 +137,7 @@ public class ArrayDeque<T> {
         T item = items[nextLast];
         items[nextLast] = null;
         size--;
-        check(size, length);
+        check();
         return item;
     }
     /** Gets the item at the given index,
